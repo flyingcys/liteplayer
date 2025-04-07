@@ -45,17 +45,17 @@
 //#define ENABLE_HTTPCLIENT_DEBUG
 
 #ifdef ENABLE_HTTPCLIENT_DEBUG
-#define VERBOSE(fmt, arg...) OS_LOGV(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
-#define DBG(fmt, arg...)     OS_LOGD(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
-#define INFO(fmt, arg...)    OS_LOGI(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
-#define WARN(fmt, arg...)    OS_LOGW(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
-#define ERR(fmt, arg...)     OS_LOGE(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
+#define VERBOSE(fmt, arg...) os_verbose(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
+#define DBG(fmt, arg...)     os_debug(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
+#define INFO(fmt, arg...)    os_info(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
+#define WARN(fmt, arg...)    os_warning(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
+#define ERR(fmt, arg...)     os_error(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
 #else
-#define VERBOSE(fmt, arg...) //OS_LOGV(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
-#define DBG(fmt, arg...)     //OS_LOGD(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
+#define VERBOSE(fmt, arg...) //os_verbose(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
+#define DBG(fmt, arg...)     //os_debug(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
 #define INFO(fmt, arg...)    OS_LOGI(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
-#define WARN(fmt, arg...)    OS_LOGW(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
-#define ERR(fmt, arg...)     OS_LOGE(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
+#define WARN(fmt, arg...)    os_warning(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
+#define ERR(fmt, arg...)     os_error(TAG, "%s:%d: " fmt, __func__, __LINE__, ##arg)
 #endif
 
 #define MIN(x,y) (((x)<(y))?(x):(y))
