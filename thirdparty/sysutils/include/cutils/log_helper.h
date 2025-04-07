@@ -38,13 +38,13 @@ extern "C" {
     #endif
 
 #else
-    #define OS_LOGF(tag, format, ...) os_fatal(tag, "%s:%d: " format,  __func__, __LINE__, ##__VA_ARGS__)
-    #define OS_LOGE(tag, format, ...) os_error(tag, "%s:%d: " format,  __func__, __LINE__, ##__VA_ARGS__)
-    #define OS_LOGW(tag, format, ...) os_warning(tag, "%s:%d: " format,  __func__, __LINE__, ##__VA_ARGS__)
-    #define OS_LOGI(tag, format, ...) os_info(tag, "%s:%d: " format,  __func__, __LINE__, ##__VA_ARGS__)
-    #define OS_LOGD(tag, format, ...) os_debug(tag, "%s:%d: " format,  __func__, __LINE__, ##__VA_ARGS__)
+    #define OS_LOGF(tag, format, ...) os_fatal(tag, "%s %s:%d: " format, __FILE__, __func__, __LINE__, ##__VA_ARGS__)
+    #define OS_LOGE(tag, format, ...) os_error(tag, "%s %s:%d: " format, __FILE__, __func__, __LINE__, ##__VA_ARGS__)
+    #define OS_LOGW(tag, format, ...) os_warning(tag, "%s %s:%d: " format, __FILE__, __func__, __LINE__, ##__VA_ARGS__)
+    #define OS_LOGI(tag, format, ...) os_info(tag, "%s %s:%d: " format, __FILE__, __func__, __LINE__, ##__VA_ARGS__)
+    #define OS_LOGD(tag, format, ...) os_debug(tag, "%s %s:%d: " format, __FILE__, __func__, __LINE__, ##__VA_ARGS__)
     #if defined(SYSUTILS_HAVE_VERBOSE_LOG_ENABLED)
-    #define OS_LOGV(tag, format, ...) os_verbose(tag, format, ##__VA_ARGS__)
+    #define OS_LOGV(tag, format, ...) os_verbose(tag, "%s %s:%d: " format, __FILE__, __func__, __LINE__, ##__VA_ARGS__)
     #else
     #define OS_LOGV(tag, format, ...)
     #endif
